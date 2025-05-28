@@ -15,7 +15,9 @@
   "dependencies": {
     "@repo/typescript-config": "workspace:*",
     "express": "^5.1.0",
-    "jsonwebtoken": "^9.0.2"
+    "jsonwebtoken": "^9.0.2",
+    "@repo/backend-common": "workspace:*",
+    "@repo/common": "workspace:*"
   },
   "devDependencies": {
     "@types/express": "^5.0.2",

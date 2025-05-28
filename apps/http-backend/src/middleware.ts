@@ -1,3 +1,4 @@
+import { JWT_SECRET } from "@repo/backend-common/index";
 import { NextFunction, Request, Response } from "express";
 import  jwt  from "jsonwebtoken";
 
@@ -20,7 +21,7 @@ declare global {
     }
   
     try {
-      const decodedJWT = jwt.verify(token, "123123") as  { userId?: string };
+      const decodedJWT = jwt.verify(token, JWT_SECRET) as  { userId?: string };
   
       if (decodedJWT && decodedJWT.userId) {
         req.userId = decodedJWT.userId;
