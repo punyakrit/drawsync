@@ -49,6 +49,26 @@ roomRouter.get('/all', middleware, async (req:Request, res:Response) => {
     }
 })
 
+roomRouter.get('/slug/:slug', middleware, async (req:Request, res:Response) => {
+    const slug = req.params.slug;
+    const userId = req.userId
+    try{
+
+        const rooms = await prismaCLient.room.findFirst({
+            where:{
+                name: slug,
+            }
+        })
+        res.json({
+            messsage : rooms?.id
+        })
+    }catch(e){
+        res.status(400).json({
+            message :"Error "+ e,
+        })
+    }
+})
+
 
 roomRouter.get('/messages', middleware, async (req:Request, res:Response) => {
     const roomId = req.query.id;
